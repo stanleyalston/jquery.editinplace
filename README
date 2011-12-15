@@ -1,0 +1,31 @@
+JQuery Plugin - jquery.editinplace
+Updates content of an HTML element in its place. The user will simply click on the text and a textarea or an input box will appear for content updating. 
+
+The configuration of the plugin involves the design of the affected elements, e.g. textbox, submit button and cancel button. A request property(containing the jquery ajax call) will then be utilized to identify the target data file, e.g. json, xml, and text. Like so,
+
+$('.editable').editinplace({  
+	submit: "Submit",	
+	cancel: "Cancel",
+	isHover: true,
+	element: {
+		type: "text",
+		size: 45
+	},
+	request: {					
+		url: "data.php",
+		type: "json",
+		param: "param1=cartman",
+		success: function(data) {
+			console.log(data.result);
+		},
+		error: function(x, t, e) {
+			console.log("error");
+		}
+	}
+});	
+
+Dependency:
+JQuery
+editinplace.css
+
+For reference, please see the demo.html file.
