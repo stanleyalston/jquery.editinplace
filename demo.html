@@ -1,0 +1,35 @@
+<html>
+	<title>jquery.editinplace demo</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.editinplace.js"></script> 
+	<link href="editinplace.css" rel="stylesheet">
+	<script>
+		$(function () {
+			$('.editable').editinplace({  
+				submit: "Submit",	
+				cancel: "Cancel",
+				isHover: true,
+				element: {
+					type: "text",
+					size: 45
+				},
+				request: {					
+					url: "data.php",
+					type: "json",
+					param: "param1=cartman",
+					success: function(data) {
+						console.log(data.result);
+					},
+					error: function(x, t, e) {
+						console.log("error");
+					}
+				}
+			});			
+		});
+	</script>
+	<body>
+		<p id="text" class="editable">
+			Add some information here:
+		</p>
+	</body>
+</html>
